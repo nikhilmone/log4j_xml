@@ -1,0 +1,18 @@
+log4j.appender.CONSOLEA=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLEA.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLEA.layout.ConversionPattern=[%d{MM/dd HH:mm:ss.SSS}]<BW>[%p]%c{1}:%L - %m%n
+log4j.appender.CONSOLEA.Threshold=INFO
+log4j.additivity.CONSOLEA=false
+
+log4j.appender.filelog=org.apache.log4j.RollingFileAppender
+log4j.appender.filelog.File=/home/nmone/app.log
+log4j.appender.filelog.Threshold=INFO
+log4j.appender.filelog.MaxBackupIndex=100
+log4j.appender.filelog.MaxFileSize=1Gb
+log4j.appender.filelog.encoding=UTF8
+log4j.appender.filelog.layout=org.apache.log4j.PatternLayout
+log4j.appender.filelog.layout.ConversionPattern=%p %t %c - %m%n
+log4j.additivity.filelog=false
+
+log4j.rootLogger=INFO, filelog
+

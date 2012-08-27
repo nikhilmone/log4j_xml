@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "dtd/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="sdmp" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/nmone/Desktop/mytest_log4j/app.log"/>
+		<param name="MaxFileSize" value="10000KB"/>
+		<param name="MaxBackupIndex" value="10"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%x %-5p [%d{yyyyMMdd HH:mm:ss}] - %c:%L - %m%n"/>
+		</layout>
+	</appender>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="sdmp" />
+    </root>
+</log4j:configuration>
+
+
+<!-- 
+
+log4j.rootLogger=INFO, sdmp
+
+#log4j.additivity.org.apache.catalina=false
+
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=[%d{MM/dd HH:mm:ss.SSS}]<BW>[%p]%c{1}:%L - %m%n
+log4j.appender.CONSOLE.Threshold=INFO
+
+
+
+log4j.appender.sdmp=org.apache.log4j.RollingFileAppender
+log4j.appender.sdmp.File=/home/nmone/Desktop/MyApp.log
+log4j.appender.logfile.Threshold=INFO
+log4j.appender.sdmp.MaxBackupIndex=100
+log4j.appender.sdmp.MaxFileSize=1Gb
+log4j.appender.sdmp.encoding=UTF8
+
+log4j.appender.sdmp.layout=org.apache.log4j.PatternLayout
+log4j.appender.sdmp.layout.ConversionPattern=%p %t %c - %m%n
+-->

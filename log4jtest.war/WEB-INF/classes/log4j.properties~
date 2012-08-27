@@ -1,0 +1,35 @@
+
+log4j.rootLogger=INFO, MyApplicationLogging
+#參數說明: 
+#INFO: 可設定的值依輸出訊息的層級依次為  TRACE, DEBUG, INFO, WARN, ERROR, FATAL 
+#DEBUG < INFO < WARN < ERROR < FATAL (越右level越高, 訊息越少)
+#filelog: 輸出方法的別名
+
+#log4j.additivity.org.apache.catalina=false
+
+#Console output, 就算設了, console也不會顯示log4j messages from ap
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+#org.apache.log4j.ConsoleAppender，是log4j所提供的輸出到console的實作
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=[%d{MM/dd HH:mm:ss.SSS}]<BW>[%p]%c{1}:%L - %m%n
+log4j.appender.CONSOLE.Threshold=INFO
+
+
+#AP Log
+#指定輸出方法與log4j提供的輸出的實作(輸出的目的)
+log4j.appender.MyApplicationLogging=org.apache.log4j.RollingFileAppender
+#log4j.appender.filelog.File=D:\\JBoss\\jboss-eap-5.1\\jboss-as\\server\\default\\log\\ap.log
+log4j.appender.MyApplicationLogging.File=/home/nmone/ap.log
+log4j.appender.logfile.Threshold=INFO
+log4j.appender.MyApplicationLogging.MaxBackupIndex=100
+log4j.appender.MyApplicationLogging.MaxFileSize=1Gb
+log4j.appender.MyApplicationLogging.encoding=UTF8
+#指定的是輸出的樣式
+log4j.appender.MyApplicationLogging.layout=org.apache.log4j.PatternLayout
+log4j.appender.MyApplicationLogging.layout.ConversionPattern=%p %t %c - %m%n
+#%d: 時間
+#%p: 層級，也就是指輸出的訊息是屬於debug還是info這類的資訊。
+#%t: name of current thread
+#%c: 訊息所在的class名稱。
+#%m: 訊息內容
+#%n: 換行

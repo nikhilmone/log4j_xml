@@ -1,0 +1,16 @@
+<web-app>
+	<servlet>
+		<servlet-name>TestLog</servlet-name>
+		<servlet-class>com.mpinfo.test.servlet.TestLog</servlet-class>
+		   <!-- <init-param>
+			<param-name>log4j-init-file</param-name>
+			<param-value>/home/nmone/Desktop/lookup/log4j.xml</param-value>
+		    </init-param>-->
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestLog</servlet-name>
+		<url-pattern>/TestLog</url-pattern>
+	</servlet-mapping>
+</web-app>
+

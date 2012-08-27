@@ -1,0 +1,51 @@
+package com.mpinfo.test.servlet;
+import java.util.*;
+import java.io.*;
+import org.apache.log4j.PropertyConfigurator;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.Logger;
+/**
+ * log4jªì©l€Æ
+ * 
+ * @author Chiting Huang
+ * @version 1.0
+ */
+
+public class Log4jInit extends HttpServlet{
+
+    public Log4jInit()
+    {}
+Logger logger;
+    public void init()  
+    {
+	System.out.println("#############   Inside Init Method   ##################");
+        //String file = getInitParameter("log4j-init-file");
+        
+       // if (file != null)
+        //{
+            //PropertyConfigurator.configure(file);
+	try{
+		Properties props = new Properties();
+//		props.load(new FileInputStream(getClass().getResource("/home/nmone/Desktop/log4j.properties").getPath()));
+		props.load(new FileInputStream(       new File("/NotBackedUp/jboss-all/jboss-eap-4.3.0.GA_CP04/jboss-as/server/default_log4j_propConf/deploy/log4jtest.war/WEB-INF/classes/log4j.properties")          ));
+		PropertyConfigurator.configure(props);
+
+       		//}
+		logger=Logger.getLogger(Log4jInit.class);
+    	}
+	catch(IOException e){
+		System.out.println("HelloApplet exception: " + e);
+		e.printStackTrace(System.out);
+		}
+    }
+    public void service(HttpServletRequest req, HttpServletResponse res)
+    {
+	System.out.println("#############   Inside Service Method   ##################");
+         logger.info("I am logging now");
+      return;    
+    }
+
+}
